@@ -1,5 +1,4 @@
 from flask import Flask, abort, render_template
-from core.settings import ProductionConfig, DevelopmentConfig, TestingConfig
 from controllers import home, drawing, photography
 
 app = Flask(__name__)
@@ -36,5 +35,5 @@ def _photography_image(id, name):
 
 
 if __name__ == "__main__":
-    app.config.from_object(DevelopmentConfig())
-    app.run(debug=True)
+    app.config.from_pyfile("app.cfg")
+    app.run()
