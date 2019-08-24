@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% autoescape off %}
+{{ metadata }}
+{% endautoescape %}
+{% endblock %}
+
+{% block content %}
+<!-- Container for the image gallery -->
+<div class="artwork-container">
+  <!-- Full-width images with number text -->
+
+  {% if artwork.artworks | length > 0 %}
+    {% for a in artwork.artworks %}
+      <div class="artwork-mySlides">
+        <div class="artwork-numbertext">{{ loop.index}} / 6</div>
+          <img src="/{{name}}/image/{{artwork.id}}/{{a.name}}" style="width:100%">
+      </div>
+    {% endfor %}
+  {% endif %} 
+
+  <!-- Next and previous buttons -->
+  <a class="artwork-prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="artwork-next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Image text -->
+  <div class="artwork-caption-container">
+    <p id="caption">{{ artwork.name }}</p>
+  </div>
+
+  <!-- Thumbnail images 
+  <div class="artwork-row">
+      {% if artwork.artworks | length > 0 %}
+        {% for a in artwork.artworks %}
+          <div class="artwork-column">
+            <img class="artwork-demo artwork-cursor" src="/drawing/image/{{artwork.id}}/{{a.name}}" 
+              style="width:100%" onclick="currentSlide({{loop.index}})" alt="The Woods">
+          </div>
+        {% endfor %}
+      {% endif %} 
+  </div>
+-->
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("artwork-mySlides");
+    var dots = document.getElementsByClassName("artwork-demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" artwork-active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " artwork-active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+</script>
+{% endblock  %}

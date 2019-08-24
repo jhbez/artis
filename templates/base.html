@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blak Artis</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    {% block header %}
+            
+    {% endblock %}
+    
+</head>
+
+<body id="body">
+    <div class="navbar">
+        <a href="/">Blak Artis</a>
+        <a href="/drawing">Drawing</a>
+        <a href="/photography">Photography</a>
+    </div>
+    
+    <div id="main" class="main">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    {% block js %}
+            
+    {% endblock %}
+    
+    <footer>
+        <div class="column-xs-12">
+            <ul class="social">
+                <li><a href="https://www.facebook.com/blakartis" target="_blank">Fb.</a></li>
+                <li><a href="https://www.instagram.com/blakartis/" target="_blank" >In.</a></li>
+                <li><a href="https://www.500px.com/blakartis" target="_blank">5px.</a></li>
+            </ul>
+            <span>Blak Artis</span> © All Rights Reserved
+        </div>
+    </footer>
+</body>
