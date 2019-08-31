@@ -1,6 +1,6 @@
 from flask import Flask, abort, render_template
 from controllers import home, drawing, photography
-
+from core import settings
 app = Flask(__name__)
 
 @app.route("/")
@@ -33,6 +33,9 @@ def _photography_artwork(id):
 def _photography_image(id, name):
     return photography.Photography().drawing_image(id, name)
 
+@app.context_processor
+def inject():
+    return settings.inject_env()
 
 if __name__ == "__main__":
     app.config.from_pyfile("app.cfg")
