@@ -1,10 +1,18 @@
-# artis
-Minimalist website for artists
+# Artis 
 
-/
-/artwork --> all art same gallery
+Blog/Website minimalista para artistas insipirado por BlakArtis. 
 
-/drawing -> all drawing
-        /image/{id}/{name}
-/phothography --> all photo
-            /image/{id}/{name}
+Una forma sencilla de organizar y visualizar las obras de arte Dibujos, Fotografias
+sin necesidad de una base de datos realacional. 
+
+Organiza tus obras en carpetas 
+* artwork
+        * drawing 
+                * 2019 
+                        * 15Jun2019 - Virtual Drogs 
+        * photography
+                * 2019
+                        * 12Jun2019 - Battle
+
+
+

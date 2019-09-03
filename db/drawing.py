@@ -1,4 +1,3 @@
-from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 import os
 from core.utils import lsdir, lsfile, dir_has_files, get_md5, dirname2date, file_dir_exists
 import json as simplejson
