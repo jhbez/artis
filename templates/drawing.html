@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="gallery">
+  <div class="container">
+    <div class="grid">  
+      {% for aw in artworks %}
+          {% set artwork = aw['artwork'] %}
+          {% if aw['index']  in [0,1,2] %}
+            {% set column_xs_ = "column-xs-4" %}
+          {% elif aw['index'] in [3,4] %}
+            {% set column_xs_ = "column-xs-6" %}
+          {% else  %}
+            {% set column_xs_ = "column-xs-12" %}
+          {% endif %}
+
+          {% if artwork.artworks | length > 0 %}
+             <div class="{{column_xs_}}">
+                  <figure class="img-container">
+                      <a href="/{{name}}/{{ artwork.id}}">
+                        <img src="/{{name}}/image/{{ artwork.id}}/{{artwork.artworks[0].name}}"/>
+                      </a>
+                      <figcaption class="img-content">
+                          <h2 class="title">{{artwork.name}}</h2>
+                          <h3 class="category">{{artwork.created_at}}</h3>
+                      </figcaption>
+                      <span class="img-content-hover">
+                          <h2 class="title">{{artwork.name}}</h2>
+                          <h3 class="category">{{artwork.created_at}}</h3>
+                      </span>
+                  </figure>
+             </div> 
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+    const imgContent = document.querySelectorAll('.img-content-hover');
+    function showImgContent(e) {
+      for(var i = 0; i < imgContent.length; i++) {
+          imgContent[i].style.left = e.pageX + 'px';
+          imgContent[i].style.top = e.pageY + 'px';
+      }
+    };
+    document.addEventListener('mousemove', showImgContent);
+</script>
+{% endblock %}

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='themes/%s/css/styles.css' % theme ) }}">
+    {% block header %}
+            
+    {% endblock %}
+    
+</head>
+
+<body id="body">
+    <div class="navbar">
+        <a href="/">{{ title }}</a>
+        <a href="/drawing">Drawing</a>
+        <a href="/photography">Photography</a>
+    </div>
+    
+    <div id="main" class="main">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    {% block js %}
+            
+    {% endblock %}
+    
+    <footer>
+        <div class="column-xs-12">
+            <ul class="social">
+                <li><a href="{{ facebook}}" target="_blank">Fb.</a></li>
+                <li><a href="{{ instagram}}" target="_blank" >In.</a></li>
+                <li><a href="{{ px500}}" target="_blank">5px.</a></li>
+            </ul>
+            <span>{{ title }}</span> © All Rights Reserved
+        </div>
+    </footer>
+</body>
