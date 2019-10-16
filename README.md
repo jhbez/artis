@@ -1,31 +1,58 @@
-# Artis ()
+# Artis
 
-Portafolio de arte minimalista insipirado por BlakArtis. 
+## Intro
+Web-based art portfolio, minimalist style inspired by @BlakArtis [Fb](https://www.facebook.com/blakartis), [500px](https://www.500px.com/blakartis), [Ins](https://www.instagram.com/blakartis/), [Joinher]().
 
-Una forma sencilla de organizar y visualizar las obras de arte Dibujos, Fotografias. Sin necesidad de una base de datos realacional. 
+A simple way to organize and visualize artworks;
+Drawings and Photographs. No need for a translational database.
+Just just organize in folders, How to organize? ...
 
-
-Organiza tus obras en carpetas 
-
+```
 * artwork
   * drawing 
     * 2019 
-      * 15Jun2019 - Virtual Drogs 
+      * [Day[Month[Year]]] - [Art Name]
 * photography
   * 2019
     * 12Jun2019 - Battle
+```
+
+##  Preview
+
+### Index [1](./screeshots/index-v1.png), [2](./index2-v1.png)
+![](./screeshots/index2-v1.png)
+
+### Drawing
+![](./screeshots/drawing-v1.png)
+
+### Photography
+![](./screeshots/photography-v1.png)
 
 
+## Run with container `docker-compose`
 
-### Run with Virtual Environment `pipenv`
+```bash
+    docker-compose up --build
+```
 
-#### Install 
+## Run with Virtual Environment `pipenv`
+
 ```python
     pip install pipenv
     pipenv run pip install -r requirements.txt 
-```
-
-#### Run 
-```python
     pipenv run python app.py
 ```
+
+## Roadmap
+
+* :pushpin: Ordering artworks by date time ascending
+* :pushpin: Timeline artworks and grouped by year
+* :pushpin: Implement patterns style CSS
+* :pushpin: Improvment theme blakartis 
+
+## CONTRIBUTION 
+[Contribution](./CONTRIBUTING.md)
+
+
+## License
+[Apache v2.0](./LICENSE)
