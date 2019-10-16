@@ -17,10 +17,14 @@
 from flask import current_app
 
 def inject_env():
-##import pdb; pdb.set_trace()
+
     return dict(
-        artis = current_app.config.get("ARTIS", False),
-        facebook = current_app.config.get("FACEBOOK", False),
-        px500 = current_app.config.get("PX500", False),
-        instagram = current_app.config.get("INSTAGRAM", False),
+        title = current_app.config.get("TITLE","Blak Artis"),
+        theme = current_app.config.get("THEME", "blakartis"),
+        
+        # Social Media
+        facebook = current_app.config.get("FACEBOOK", 'https://www.facebook.com/blakartis'),
+        px500 = current_app.config.get("PX500", 'https://www.500px.com/blakartis'),
+        instagram = current_app.config.get("INSTAGRAM", 'https://www.instagram.com/blakartis/'),
+        joinher = current_app.config.get("JOINHER", 'https://www.joinher.com/blakartis/'),
     )
